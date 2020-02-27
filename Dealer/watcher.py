@@ -36,13 +36,13 @@ def exchanges_orders_combiner(exchanges_order_books, pair):
             pair=pair
         )
         message = f'{datetime.now()} - Deals: {deals}'
-        if deals:
-            with open(f'{LOG_PATH}deals.txt', 'a') as f:
-                f.write(message + '\n\n')
-                print(message)
+        # if deals:
+        #     with open(f'{LOG_PATH}deals.txt', 'a') as f:
+        #         f.write(message + '\n\n')
+        #         print(message)
 
-        with open(LOG, 'a') as f:
-            f.write(f'{datetime.now()} - Deals: {list(map(str, deals))}\n')
+        # with open(LOG, 'a') as f:
+        #     f.write(f'{datetime.now()} - Deals: {list(map(str, deals))}\n')
 
 
 def run():
