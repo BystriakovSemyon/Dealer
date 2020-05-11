@@ -1,5 +1,3 @@
-from lib import Deal
-
 
 def calculate_gain(sell_exchange, buy_exchange, sell_order, buy_order, pair):
     """
@@ -34,7 +32,7 @@ def calculate_gain(sell_exchange, buy_exchange, sell_order, buy_order, pair):
     return gain
 
 
-def collect_deals(deals, sell_exchange, buy_exchange, sell_orders, buy_orders, pair):
+def collect_deals(sell_exchange, buy_exchange, sell_orders, buy_orders, pair, logger):
     """
     Looking for a good deals and stop when gain is equal to zero.
     Orders are sorted by price increase, so zipping them is fine for the beginning.
@@ -45,11 +43,12 @@ def collect_deals(deals, sell_exchange, buy_exchange, sell_orders, buy_orders, p
         if gain <= 0:
             break
 
-        deals.append(Deal(
-            sell_order=sell_order,
-            buy_order=buy_order,
-            gain=gain,
-            pair=pair,
-            sell_exchange=sell_exchange.name,
-            buy_exchange=buy_exchange.name
-        ))
+        deal = {
+            'sell_order': sell_order,
+            'buy_order': buy_order,
+            'gain': gain,
+            'pair': pair,
+            'sell_exchange': sell_exchange.name,
+            'buy_exchange': buy_exchange.name
+        }
+        logger.info('Deal', extra={'deal': deal})

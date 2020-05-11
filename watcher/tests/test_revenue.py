@@ -1,6 +1,6 @@
 
-from lib import Order, Pair, Fee
-import revenue
+from watcher.lib import Order, Pair, Fee
+from watcher import revenue
 
 
 def test_calculate_gain_no_gain():

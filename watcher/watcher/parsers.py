@@ -2,9 +2,9 @@ from datetime import datetime
 
 import requests
 
-from exchanges import CEX_IO, EXMO
-from lib import Order, OrderBook, ExchangeOrderBook
-from settings import LOG_PATH, LOG
+from watcher.exchanges import CEX_IO, EXMO
+from watcher.lib import Order, OrderBook, ExchangeOrderBook
+from watcher.settings import LOG_PATH, LOG
 
 
 class Parser:

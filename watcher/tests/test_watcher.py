@@ -1,6 +1,6 @@
 from unittest.mock import Mock, mock_open, call, patch
 
-from lib import Pair
+from watcher.lib import Pair
 import watcher
 
 

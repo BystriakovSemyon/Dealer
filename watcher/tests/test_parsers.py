@@ -1,7 +1,7 @@
 from unittest.mock import patch, mock_open, call
 
-from lib import Pair
-import parsers
+from watcher.lib import Pair
+from watcher import parsers
 
 
 def test_collect_orders():
@@ -23,7 +23,7 @@ def test_parse_order_book(mocker):
         'bids': 'test bids'
     }
     assert parsers.Parser().parse_order_book(response, None) == \
-        parsers.OrderBook(asks='test asks', bids='test bids')
+           parsers.OrderBook(asks='test asks', bids='test bids')
 
 
 def test_get_order_book(mocker):
@@ -157,6 +157,6 @@ def test_EXMOParser_parse_order_book(mocker):
         }
     }
     assert parsers.EXMOParser().parse_order_book(response, Pair('TST1', 'TST2')) == \
-        parsers.OrderBook(asks='test asks', bids='test bids')
+           parsers.OrderBook(asks='test asks', bids='test bids')
 
 
